@@ -1,0 +1,90 @@
+<div id="progress">
+    <span id="progress-value"><i class="fa-solid fa-arrow-up"></i></span>
+</div>
+<nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark"
+    style="background-color: #141414 !important;">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <img src="/static/img/logo1.png" alt="" width="100px">
+        </a>
+
+        <!-- offcanvas button -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Anasayfa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/programlar/">Programlar</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Eğitimler
+                    </a>
+                    <ul class="dropdown-menu">
+                        
+                        {% for hizmet in hizmetler %}
+                            <li><a class="dropdown-item" href="/egitimler/{{hizmet.slug}}">{{hizmet.isim}}</a></li>
+                        {% endfor %}
+                            
+                        
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/hakkimizda/">Hakkımızda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/misyon/">Vizyon & Misyon</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/galeri/">Galeri</a>
+                </li>
+            </ul>
+        </div>
+        <!-- offcanvas body-->
+    </div>
+</nav>
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+    aria-labelledby="offcanvasWithBothOptionsLabel" style="background-color: #141414 !important;">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
+            <img src="/static/img/logo2.png" alt="" width="100px">
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="d-flex flex-column gap-3">
+            <li>
+                <a href="/">Anasayfa</a>
+            </li>
+            <li>
+                <a href="/programlar/">Programlar</a>
+            </li>
+            
+            {% for hizmet in hizmetler %}
+              <li>
+                <a href="/egitimler/{{hizmet.slug}}">{{hizmet.isim}}</a>
+            </li>   
+            {% endfor %}
+                
+           
+            
+            <li>
+                <a href="/hakkimizda/">Hakkımızda</a>
+            </li>
+            <li>
+                <a href="/misyon/">Vizyon & Misyon</a>
+            </li>
+            <li>
+                <a href="/galeri/">Galeri</a>
+            </li>
+        </ul>
+    </div>
+</div>

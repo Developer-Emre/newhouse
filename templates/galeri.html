@@ -1,0 +1,50 @@
+{% extends 'index.html' %}
+
+
+{% block content %}
+    
+    <!-- About-->
+    <section class="about-section text-center" id="about">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="text-white mb-4 mt-4 fs-1" data-aos="zoom-in"data-aos-duration="4000">Galeri</h2>
+                    <p class="text-white"data-aos="zoom-in"data-aos-duration="4000">
+                        {{galeri.aciklama}}
+                    </p>
+                </div>
+            </div>
+            <!-- <img class="img-fluid" src="/static/img/ipad.png" alt="..." /> -->
+        </div>
+    </section>
+    <!-- Galery-->
+    <section class="galery">
+        <!-- Content section 1-->
+        
+        {% for galeri in galeri %}
+        <div class="container px-5">
+            <div class="row gx-5 align-items-center">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="p-5"><img class="img-fluid rounded-circle" data-aos="fade-left"data-aos-duration="4000" src="{{galeri.resim.url}}" alt="..." /></div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="p-5">
+                        <h2 class="display-4"data-aos="fade-right"data-aos-duration="4000">{{galeri.isim}}</h2>
+                        <p data-aos="fade-right"data-aos-duration="4000">{{galeri.aciklama|safe}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </section>
+   
+    
+{% endblock content %}
+
+
+
+
+
+
+
+

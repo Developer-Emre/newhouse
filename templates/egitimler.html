@@ -1,0 +1,76 @@
+{% extends 'index.html' %}
+
+
+{% block content %}
+    <!-- About-->
+    <section class="about-section text-center" id="about">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8 beyaz">
+                    <h2 class="text-white mb-4 mt-4 fs-1" data-aos="zoom-in" data-aos-duration="4000">{{hizmetimiz.isim}}</h2>
+                    <p class="text-white" data-aos="zoom-in" data-aos-duration="4000">
+                        {{hizmetimiz.aciklama|safe}}
+                    </p>
+                </div>
+            </div>
+            <!-- <img class="img-fluid" src="/static/img/ipad.png" alt="..." /> -->
+        </div>
+    </section>
+    <!-- Education-->
+    <section class="education-page bg-dark text-white">
+        <div class="container px-4 px-lg-5 py-5">
+            <div class="row gx-4 gx-lg-5 align-items-center">
+                
+                {% for egitim in egitimler %}
+                <div class="col-md-6" data-aos="fade-right" data-aos-duration="4000"><img class="card-img-top mb-5 mb-md-0" src="{{egitim.resim.url}}" alt="{{egitim.isim}}" /></div>
+                <div class="col-md-6" data-aos="fade-left" data-aos-duration="4000">
+                    <div class="small mb-1">Tarih : <span class="edu-date text-decoration-underline">{{egitim.baslama_tarihi}}</span></div>
+                    <h1 class="display-5 fw-bolder">{{egitim.hizmet.isim}}</h1>
+                    <div class="fs-5 mb-3">
+                        <!-- <span class="text-decoration-line-through">{{egitim.fiyat}}TL</span> -->
+                        <span>{{egitim.fiyat}}TL</span>
+                    </div>
+                    <p class="lead">{{egitim.aciklama|safe}}</p>
+                    <div class="fw-bolder mb-4">Şube : <span class="edu-branch text-decoration-underline">{{egitim.sube.isim}}</span></div>
+                    <div class="d-flex">
+                        <button class="btn btn-primary flex-shrink-0" type="button">
+                            <i class="bi-cart-fill me-1"></i>
+                            Add to cart
+                        </button>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- Related items section-->
+    <section class="py-5 bg-dark text-white">
+        <div class="container px-4 px-lg-5 mt-5">
+            <h2 class="fw-bolder mb-4">İlgili Ürünler</h2>
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                
+                {% for egitim in karisik %}
+                <div class="col mb-5" data-aos="fade-up" data-aos-duration="4000">
+                    <div class="card h-100 bg-dark text-white border">
+                        <!-- Product image-->
+                        <img class="card-img-top" src="{{egitim.resim.url}}" alt="..." />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h5 class="fw-bolder">{{egitim.hizmet.isim}}</h5>
+                                <!-- Product price-->
+                                {{egitim.fiyat}}
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center"><a class="btn btn-primary mt-auto" href="/egitimler/{{egitim.hizmet.slug}}">Detay</a></div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock content %}

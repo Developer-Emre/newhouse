@@ -1,0 +1,55 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <!-- About-->
+    <section class="about-section text-center" id="about">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="text-white mb-4 mt-4 fs-1" data-aos="zoom-in"data-aos-duration="4000">Programlar</h2>
+                    <p class="text-white" data-aos="zoom-in"data-aos-duration="4000">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores sed modi eveniet veritatis
+                        molestias optio!
+                        Natus aut laboriosam sequi, amet, quae dolorem qui commodi ipsa necessitatibus quam accusamus
+                        exercitationem.
+                        <a href="https://neosyazilim.com/">the preview page.</a>
+                        Iure maiores ipsa enim beatae soluta id doloribus esse pariatur porro. Deserunt sint, id
+                        inventore eos similique provident labore iusto soluta?
+                    </p>
+                </div>
+            </div>
+            <!-- <img class="img-fluid" src="/static/img/ipad.png" alt="..." /> -->
+        </div>
+    </section>
+    <!-- Projects-->
+    <section class="projects-section p-5" id="projects">
+        <div class="container px-4 px-lg-5">
+            <!-- Project One Row-->
+            
+            {% for program in programlar %} 
+            <div class="row gx-0 mb-5 mb-lg-0 justify-content-center">
+                <div class="col-lg-6">
+                    <div class="iframe-box">
+                        <iframe width="100%" height="100%" src="{{program.iframe}}"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="iframe-text text-center h-100 project">
+                        <div class="d-flex h-100">
+                            <div class="project-text w-100 my-auto text-center text-lg-left beyaz">
+                                <h4 class="text-white" data-aos="zoom-in"data-aos-duration="4000">{{program.baslik}}</h4>
+                                <p class="mb-0 text-white-50" data-aos="zoom-in"data-aos-duration="4000">
+                                    {{program.aciklama|safe}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock content %}
