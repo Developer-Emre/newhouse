@@ -130,12 +130,9 @@ class Program(models.Model):
 
 
 
-
-
 class GenelVizyon(models.Model):
     icerik = RichTextField()
 
 class GenelProgram(models.Model):
     icerik = RichTextField()
 
-    
